@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+All Profiles to Follow
+{% endblock title%}
+
+{% block content %}
+{{profile}}
+    <ul>
+        {% for item in qs%}
+        <li>
+            {{item}}
+            <br>
+            <a href={% url 'profiles:profile-detail-view' item.pk %}>
+                <button class="ui primary button" style="background-color:rgb(23, 161, 161);">See Profile</button>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock content %}
